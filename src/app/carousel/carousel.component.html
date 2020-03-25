@@ -1,0 +1,13 @@
+
+<div class="corousel-container">
+ <div class="slider">
+   <slideshow [height]="'500px'"
+           [minHeight]="'500px'"
+           [autoPlay]="true"
+           [showArrows]="true"
+           [imageUrls]="thumbNails"
+           [lazyLoad]="thumbNails?.length > 1"
+           [autoPlayWaitForLazyLoad]="true">
+    </slideshow>
+   </div>
+</div>

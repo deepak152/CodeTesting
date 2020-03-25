@@ -1,0 +1,26 @@
+<div class="main-content">
+    <div class="group-container" [id]="product.id" *ngFor="let product of products">
+        <h2 class="sub-header">{{product.name}}</h2>
+        <div class="sub-group">
+        <div class="img-container" *ngFor="let group of product.groups">
+            <mat-card [id]="group.id">
+                <div class="card-img"  >
+                    <img [src]="group.hero.href" [width]="group.hero.width" [height]="group.hero.height" (click)="onImgClick(group.images)"></div>
+                <div class="card-content">
+                    <a [href]="group.links.www" class="product-title">
+                        <p class="product-name">{{group.name}}</p>
+                        <p *ngIf="group.priceRange"><span class="actual-price">${{group.priceRange?.regular.low}} - ${{group.priceRange?.regular.high}}</span><span class="selling-price">${{group.priceRange?.selling.low}} - ${{group.priceRange?.selling.high}}</span></p>
+                        <p *ngIf="group.price"><span class="actual-price">${{group.price?.regular}}</span><span class="selling-price">${{group.price?.selling}}</span></p>   
+                    </a>
+                </div>
+            </mat-card>
+           
+        </div>
+        </div>
+        <div id="overlay" *ngIf="showCorousel" >
+            <div class="close-button"><button (click)="closeCorousel()">X</button></div>
+            <app-carousel [thumbNails]="thumbNails"></app-carousel>  
+          </div>
+        
+    </div>
+</div>
